@@ -12,4 +12,8 @@ import { DummyUsers } from "../dummy-users";
 })
 export class AppComponent {
 	users = DummyUsers;
+
+	onSelectUser(id: string) {
+		console.log(`User with id ${id} has been clicked.`);
+	}
 }
