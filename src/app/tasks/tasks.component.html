@@ -9,7 +9,9 @@
 	</header>
 
 	@if (getAddTaskClicked()) {
-		<app-new-task (closeDialog)="onCloseNewTaskDialog()"/>
+		<app-new-task
+			(closeDialog)="onCloseNewTaskDialog()"
+			(addNewTask)="onSubmitNewTask($event)"/>
 	}
 
 	<ul>

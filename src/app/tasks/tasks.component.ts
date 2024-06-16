@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { TaskComponent } from "./task/task.component";
 import { Tasks } from "./Tasks";
 import { NewTaskComponent } from "./new-task/new-task.component";
+import { newTask } from "./new-task/newtask.model";
+import { Task } from "./task/task.model";
 
 @Component({
 	selector: 'app-tasks',
@@ -36,6 +38,19 @@ export class TasksComponent {
 	}
 
 	onCloseNewTaskDialog() {
+		this.addTaskClicked = false;
+	}
+
+	onSubmitNewTask(task: newTask) {
+		const id = (this.tasks.length + 1).toString();
+		const toBeAddedTask: Task = {
+			id: id,
+			userId: this.userId,
+			title: task.enteredTitle,
+			summary: task.enteredSummary,
+			dueDate: task.enteredDate
+		}
+		this.tasks.push(toBeAddedTask);
 		this.addTaskClicked = false;
 	}
 }
