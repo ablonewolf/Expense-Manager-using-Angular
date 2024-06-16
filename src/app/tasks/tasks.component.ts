@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { TaskComponent } from "./task/task.component";
 import { Tasks } from "./Tasks";
 import { NewTaskComponent } from "./new-task/new-task.component";
-import { newTask } from "./new-task/newtask.model";
+import { newTask } from "./new-task/new-task.model";
 import { Task } from "./task/task.model";
 
 @Component({

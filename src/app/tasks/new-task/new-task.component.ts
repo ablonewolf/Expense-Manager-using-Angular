@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from "@angular/forms";
-import { newTask } from "./newtask.model";
+import { newTask } from "./new-task.model";
 
 @Component({
 	selector: ' app-new-task',
