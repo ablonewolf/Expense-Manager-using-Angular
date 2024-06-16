@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { type User } from "./user.model";
+import { CardComponent } from "../utility-components/card/card.component";
 
 
 /*const getRandomIndex = () => {
@@ -9,7 +10,9 @@ import { type User } from "./user.model";
 @Component({
 	selector: 'app-user',
 	standalone: true,
-	imports: [],
+	imports: [
+		CardComponent
+	],
 	templateUrl: './user.component.html',
 	styleUrl: './user.component.css'
 })
