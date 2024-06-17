@@ -11,7 +11,8 @@
 	@if (getAddTaskClicked()) {
 		<app-new-task
 			[userId]="userId"
-			(closeDialog)="onCloseNewTaskDialog()"/>
+			(closeDialog)="onCloseNewTaskDialog()"
+		/>
 	}
 
 	<ul>
