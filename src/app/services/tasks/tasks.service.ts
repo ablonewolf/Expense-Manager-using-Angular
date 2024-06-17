@@ -5,10 +5,19 @@ import { Injectable } from "@angular/core";
 
 @Injectable({providedIn: "root"})
 export class TasksService {
-	private tasks = Tasks;
+	private tasks;
+
+	constructor() {
+		const tasks = localStorage.getItem('tasks');
+		if (tasks) {
+			this.tasks = JSON.parse(tasks);
+		} else {
+			this.tasks = Tasks;
+		}
+	}
 
 	getUserTasks(userId: string) {
-		return this.tasks.filter(task => task.userId === userId)
+		return this.tasks.filter((task: Task) => task.userId === userId)
 	}
 
 	addTask(task: newTask, userId: string) {
@@ -21,9 +30,15 @@ export class TasksService {
 			dueDate: task.enteredDate
 		}
 		this.tasks.push(toBeAddedTask);
+		this.saveTasksToLocalStorage();
 	}
 
 	removeTask(id: string) {
-		this.tasks = this.tasks.filter(task => task.id !== id);
+		this.tasks = this.tasks.filter((task: Task) => task.id !== id);
+		this.saveTasksToLocalStorage();
+	}
+
+	private saveTasksToLocalStorage() {
+		localStorage.setItem('tasks', JSON.stringify(this.tasks));
 	}
 }
