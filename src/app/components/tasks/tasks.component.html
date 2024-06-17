@@ -10,8 +10,8 @@
 
 	@if (getAddTaskClicked()) {
 		<app-new-task
-			(closeDialog)="onCloseNewTaskDialog()"
-			(addNewTask)="onSubmitNewTask($event)"/>
+			[userId]="userId"
+			(closeDialog)="onCloseNewTaskDialog()"/>
 	}
 
 	<ul>
